@@ -1,0 +1,3 @@
+This Chrome extension is a client-side web spider.  Start it on a page and it will follow every link.  Use a regular expression leash to restrict its depth.  The result is a table listing every URL it found, along with the HTTP status code and MIME type.
+
+For more information and to install the extension, visit its page at the [Chrome Web Store](https://chrome.google.com/webstore/detail/ddlodfbcplakmddhdlffebcggbbighda).
