@@ -243,7 +243,7 @@ function spiderPage() {
   httpRequest.referrer = referrer; // Create new 'referrer' property.
   // For some reason this request only works intermitently when called directly.
   // Delay request by 1ms.
-  window.setTimeout('httpRequest.send(null)', 1);
+  window.setTimeout(funct(){ httpRequest.send(null) }, 1);
 }
 
 /**
@@ -306,6 +306,9 @@ function httpRequestChange() {
 
   // If this is a redirect or an HTML page, open it in a new tab and
   // look for links to follow.  Otherwise, move on to next page.
+
+  console.log("THE URL:", url);
+
   if (url.match(allowedRegex) &&
       ((code >= 300 && code < 400) || (code < 300 && mimeOk))) {
     setStatus('Fetching ' + url);
@@ -330,7 +333,7 @@ function spiderLoadCallback_(tab) {
 }
 
 // Add listener for message events from the injected spider code.
-chrome.extension.onRequest.addListener(
+chrome.extension.onMessage.addListener(
     function(request, sender, sendResponse) {
       if ('links' in request) {
         spiderInjectCallback(request.links, request.inline);
