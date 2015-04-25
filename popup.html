@@ -9,18 +9,8 @@ h1 {
   font-size: smaller;
 }
 </style>
-<script>
-  function pageLoaded() {
-    chrome.extension.getBackgroundPage().popupLoaded(document);
-  }
-
-  function clickGo() {
-    chrome.extension.getBackgroundPage().popupGo();
-    window.close();
-  }
-</script>
-</head>
-<body onload="pageLoaded()">
+<script src="popup-init.js"></script>
+<body>
 <h1>Site Spider</h1>
 
 <p>
@@ -48,7 +38,7 @@ h1 {
 </p>
 
 <p>
-  <input type="button" value="Go" id="go" onclick="clickGo()">
+  <input type="button" value="Go" id="go">
 </p>
 
 </body>
